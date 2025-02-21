@@ -18,7 +18,8 @@ def create_table():
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 TITLE TEXT  NOT NULL,
                 ARTIST TEXT NOT NULL,
-                BPM TEXT NOT NULL
+                BPM_LOW REAL,
+                BPM_HIGH REAL
                 KEY TEXT
                 MODE TEXT)''')
     
