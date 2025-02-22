@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy import Column, Integer, String, REAL, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -12,9 +12,9 @@ class Song(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String, nullable=False)
     artist = Column(String, nullable=False)
-    bpm = Column(String)
+    bpm_low = Column(REAL)
+    bpm_high = Column(REAL)
     key = Column(String)
-    mode = Column(String)
 
     #Connect to the DB
 
