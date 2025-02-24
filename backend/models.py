@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, REAL, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import os
 
 #declrative base creates a base class that all db tables will inherit from. Every tables defined in the future will inherit from base
 Base = declarative_base()
@@ -19,7 +20,16 @@ class Song(Base):
     #Connect to the DB
 
     #Tells SQLAlchemy where to store the DB, sqlite will save data in a file called "songs.db"
-DATABASE_URL = "sqlite:///songs.db"
+#
+# 
+ # ✅ Use an absolute path to ensure FastAPI always uses the correct SQLite file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get backend directory
+print(BASE_DIR)
+DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'songs.db')}"
+print("db url...")
+print(DATABASE_URL)
+
+#DATABASE_URL = "sqlite:///songs.db"
 
     #connects sqlalchemy to the DB
 engine = create_engine(DATABASE_URL)
