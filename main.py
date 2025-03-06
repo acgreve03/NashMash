@@ -2,7 +2,7 @@ from fastapi import FastAPI, Depends, Query
 from sqlalchemy.orm import Session
 from backend.models import SessionLocal, Song  # Import SQLAlchemy setup & model
 from fastapi.middleware.cors import CORSMiddleware
-from backend.models import init_db  # Import your database initialization function
+
 
 app = FastAPI()
 

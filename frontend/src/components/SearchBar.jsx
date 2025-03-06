@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
 
-export const SearchBar = ({ setResults }) => {
+export const SearchBar = ({ label, setResults }) => {
     const [input, setInput] = useState("");  
 
     const fetchData = (value) => {
@@ -31,8 +31,9 @@ export const SearchBar = ({ setResults }) => {
     return (
         <div className="input-wrapper">
             <FaSearch id="search-icon" />
+           
             <input 
-                placeholder="Search" 
+                placeholder={label} 
                 value={input} 
                 onChange={(e) => handleChange(e.target.value)} 
             />
